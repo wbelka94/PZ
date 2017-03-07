@@ -1,1 +1,2 @@
-a=3
+from nltk.corpus import reuters
+print(reuters.fields(categories=['barley']))
