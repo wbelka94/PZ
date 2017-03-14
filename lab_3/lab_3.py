@@ -125,5 +125,6 @@ print(wszystkie)
 
 
 
+#zmiana
 
 
