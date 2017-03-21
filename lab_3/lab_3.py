@@ -1,5 +1,11 @@
 from os import listdir
 from sklearn import svm
+from nltk.stem.porter import PorterStemmer
+from nltk.corpus import stopwords, reuters
+import re
+
+cahcedStopWords = stopwords.words("english")
+min_length = 3
 
 class corpus:
     def __init__(self, dir_pos, dir_neg):
@@ -79,9 +85,27 @@ class document:
         self.train = train
         self.text = text
 
+    def preprocesig(self,raw_tokens):
+        #stemowanie i usowanie stopwords
+        no_stopwords = [token for token in raw_tokens if token not in cahcedStopWords]
+        stemmed_tokens = []
+        stemmer = PorterStemmer()
+        for token in no_stopwords:
+            stemmed_tokens.append(stemmer.stem(token))
+
+        #p pattern i sprawszanie dlugosci slowa
+        p = re.compile('[a-zA-Z]+');
+        pattern_checked = []
+        for stem in stemmed_tokens:
+            if p.match(stem) and len(stem) >= min_length:
+                pattern_checked.append(stem)
+
+        return pattern_checked
+
     def get_unique_words(self):
         word_list = []
-        for word in self.text.split():
+
+        for word in self.preprocesig(self.text.split()):
             if not word in word_list:
                 word_list.append(word)
         return word_list
