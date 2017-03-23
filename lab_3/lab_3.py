@@ -143,8 +143,8 @@ class tf_idf:
     def tf_idf(self, token, document):
         return self.tf(token,document) * self.idf(token)
 
-dir_neg = "C:\\Users\\s0152850\\Desktop\\txt_sentoken\\neg"
-dir_pos = "C:\\Users\\s0152850\\Desktop\\txt_sentoken\\pos"
+dir_neg = "..\\txt_sentoken\\neg"
+dir_pos = "..\\txt_sentoken\\pos"
 
 crp = corpus(dir_pos,dir_neg)
 

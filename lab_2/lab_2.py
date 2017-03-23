@@ -1,7 +1,7 @@
-##biblioteka do rysowania wykresów##
-## import  nazwa biblioteki  as alias
+#biblioteka do rysowania wykresow
+#import  nazwa biblioteki  as alias
 import matplotlib.pyplot as plt
-##odwołując się do biblioteki piszemy plt.funkcja
+#odwolujac sie do biblioteki piszemy plt.funkcja
 
 
 ##czytanie danych##
@@ -14,8 +14,8 @@ c = []
 f = open('train')
 ##iterowanie po liniach
 for line in f:
-    ##dzielimy według spacji i zapisujemy w odpowiednich tablicach
-    ##pamiętamy o tym ,że w pliku są zapisane litery, a my potrzebujemy liczby
+    ##dzielimy wedlug spacji i zapisujemy w odpowiednich tablicach
+    ##pamietamy o tym ,ze w pliku sa zapisane litery, a my potrzebujemy liczby
     x.append(float(line.split()[0]))
     y.append(float(line.split()[1]))
     c.append(float(line.split()[2]))
@@ -25,8 +25,8 @@ print(y)
 
 ##ustawienie pola widzenia na diagramie
 plt.axis([-10,10,-10,10])
-##stworzenie diagramu wszystkich punktów
-##plt.plot(xy , ygreki, kształt, color = kolor
+##stworzenie diagramu wszystkich punktow
+##plt.plot(xy , ygreki, ksztalt, color = kolor
 
 
 for i in range(len(c)):
@@ -37,6 +37,6 @@ for i in range(len(c)):
     else:
         plt.plot(x[i], y[i], 'ro', color='black')
 
-##wyświetlenie diagramu
+##wyswietlenie diagramu
 plt.show()
 
